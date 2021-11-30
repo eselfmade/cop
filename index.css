@@ -1,0 +1,45 @@
+* {
+    font-family: Jost, sans-serif
+}
+
+:root {
+    --bg: #d5c6e0;
+    --color: #433d60;
+    --border: rgba(0, 0, 0, 40%);
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--color);
+    counter-reset: Serial;
+}
+
+nav {
+    background-color: var(--color);
+    color: #e9e9e9;
+}
+
+.card:not(:active) {
+    border: none;
+}
+
+.card {
+    background-color: var(--bg);
+}
+
+.card:active {
+    box-shadow: none !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+#player-list .row .serial:before {
+    counter-increment: Serial;
+    content: counter(Serial);
+}
+
+.border-1 {
+    border-color: var(--border) !important;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1,shrink-to-fit=no" name=viewport>
+    <meta content="text/html;charset=utf-8" http-equiv=content-type>
+
+    <title>Clash of Phoenix - Star - Contest by Team Avengers</title>
+    <meta content="Clash of Phoenix - Star - Contest by Team Avengers" property="og:title" name="title">
+
+    <meta content="Clash of Phoenix - Star - Contest by Team Avengers" property="og:description" name="description">
+    <meta content="Karthikeyan" name="author">
+
+    <link href="../bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../index.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel=stylesheet>
+
+    <link href="../img/star.webp" rel=icon type=image/png>
+    <link href="../img/star.webp" rel=apple-touch-icon type=image/png>
+    <meta content="https://cop.eselfmade.in/img/star.webp" property="og:image">
+</head>
+<body>
+
+<header>
+    <nav class="text-center py-5">
+        <h1>CLASH OF PHOENIX</h1>
+    </nav>
+</header>
+
+<section id="players" class="container text-center pt-4 mb-5 pb-5">
+    <h1 class="text-uppercase mb-2">STAR</h1>
+    <div id="player-list" class="container">
+        <div class="row border-bottom border-1" id="list-header">
+            <div class="col-2 border-end border-1 col-2 align-self-center">&nbsp;&nbsp;</div>
+            <div class="col-10">&nbsp;&nbsp;</div>
+        </div>
+        <div class="row">
+            <div class="col-2 border-end border-1"></div>
+            <div class="col-10">&nbsp;&nbsp;</div>
+        </div>
+    </div>
+</section>
+
+<script src="../lazy.min.js"></script>
+<script>
+    const f = data => `<div class="row mb-0 border-bottom border-1 h4"><div class="col-2 serial align-self-center"></div><div class="col-4 align-self-center border-start border-1 py-4 ps-4"><div class="position-relative d-md-none"><img src="../img/frame.webp" width="75" height="75" alt><div class="position-absolute top-0 text-center w-100 h-100"><img width="75" height="75" loading="lazy" alt="${data.name}" class="lazy mx-auto p-1" src="" data-src="${data.image ? `https://download-accl.zoho.in/public/workdrive/previewdata/${data.image}?orig=true` : `https://ui-avatars.com/api/?name=${data.name}&background=random`}"></div></div><div class="position-relative d-none d-md-block"><img src="../img/frame.webp" width="200" height="200" alt><div class="position-absolute top-0 text-center w-100 h-100"><img width="200" height="200" loading="lazy" alt="${data.name}" class="lazy mx-auto p-1" src="" data-src="${data.image ? `https://download-accl.zoho.in/public/workdrive/previewdata/${data.image}?orig=true` : `https://ui-avatars.com/api/?name=${data.name}&background=random`}"></div></div></div><div class="col-6 align-self-center fw-bold overflow-hidden"><div class="fs-1">${data.name}</div><div class="fs-6">PV:${data.pv} | ₹${data.income}</div></div></div>`;
+
+    fetch('https://eselfmade.in/api/cop/2').then(r => r.json()).then(data => {
+        data = data.data;
+        let html = ''
+        data.forEach(d => html += f(d))
+        document.getElementById('list-header').insertAdjacentHTML('afterend', html)
+        new LazyLoad().update()
+    })
+</script>
+</body>
+</html>
