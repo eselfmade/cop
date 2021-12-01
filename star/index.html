@@ -45,7 +45,7 @@
 <script>
     const f = data => `<div class="row mb-0 border-bottom border-1 h4"><div class="col-2 serial align-self-center"></div><div class="col-4 align-self-center border-start border-1 py-4 ps-4"><div class="position-relative d-md-none"><img src="../img/frame.webp" width="75" height="75" alt><div class="position-absolute top-0 text-center w-100 h-100"><img width="75" height="75" loading="lazy" alt="${data.name}" class="lazy mx-auto p-1" src="" data-src="${data.image ? `https://download-accl.zoho.in/public/workdrive/previewdata/${data.image}?orig=true` : `https://ui-avatars.com/api/?name=${data.name}&background=random`}"></div></div><div class="position-relative d-none d-md-block"><img src="../img/frame.webp" width="200" height="200" alt><div class="position-absolute top-0 text-center w-100 h-100"><img width="200" height="200" loading="lazy" alt="${data.name}" class="lazy mx-auto p-1" src="" data-src="${data.image ? `https://download-accl.zoho.in/public/workdrive/previewdata/${data.image}?orig=true` : `https://ui-avatars.com/api/?name=${data.name}&background=random`}"></div></div></div><div class="col-6 align-self-center fw-bold overflow-hidden"><div class="fs-6 d-md-none mb-1">${data.name}</div><div class="fs-1 d-none d-md-block mb-2">${data.name}</div><div class="fs-6 d-md-none">PV:${data.pv} | ₹${data.income}</div><div class="fs-3 d-none d-md-block">PV:${data.pv} | ₹${data.income}</div></div></div>`;
 
-    fetch('https://eselfmade.in/api/cop/2').then(r => r.json()).then(data => {
+    fetch('https://lycra.eselfmade.in/api/cop/2').then(r => r.json()).then(data => {
         data = data.data;
         let html = ''
         data.forEach(d => html += f(d))
